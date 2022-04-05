@@ -1,66 +1,44 @@
 {
   "name": "subtitle.js-dcl",
   "version": "5.0.0",
-  "description": "Stream-based library for parsing and manipulating subtitles for Decentraland",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/decentraland/subtitle-helper"
+  "description": "Test Dcl SDK Library",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "rollup -c --environment BUILD:production",
+    "link": "npm link && rollup --watch -c --environment BUILD:production"
+  },
+  "typings": "./dist/index.d.ts",
+  "decentralandLibrary": {
+    "main": "./dist/index.js"
   },
   "keywords": [
-    "subtitle",
-    "webvtt",
-    "srt",
-    "vtt",
-    "decentraland"
+    "dcl",
+    "decentraland",
+    "sdk",
+    "library"
   ],
-  "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "author": "-",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/$author/$name"
+  },
   "files": [
     "dist"
   ],
-  "engines": {
-    "node": ">=12"
-  },
-  "decentralandLibrary": {},
-  "scripts": {
-    "build": "rollup -c ./rollup.config.js --environment BUILD:production && tsdx lint --fix",
-    "test": "tsdx test",
-    "test:coverage": "tsdx test --coverage",
-    "lint:fix": "tsdx lint",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "coveralls": "tsdx test --coverage && coveralls < coverage/lcov.info"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "none"
-  },
-  "author": "Guilherme Santiago",
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.1",
     "@rollup/plugin-commonjs": "^21.0.2",
     "@rollup/plugin-node-resolve": "^13.1.3",
     "decentraland-ecs": "latest",
     "rollup": "^2.70.1",
-    "rollup-plugin-terser": "^7.0.2",
-    "@types/split2": "^2.1.6",
-    "husky": "^4.2.5",
-    "rollup-plugin-node-builtins": "^2.1.2",
-    "tsdx": "^0.13.3",
-    "tslib": "^2.0.1",
-    "typescript": "^4.0.2"
-  },
-  "jest": {
-    "verbose": true
+    "rollup-plugin-terser": "^7.0.2"
   },
   "dependencies": {
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0",
+    "yarn": "please use npm"
   }
 }
