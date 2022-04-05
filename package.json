@@ -24,7 +24,7 @@
   },
   "decentralandLibrary": {},
   "scripts": {
-    "build": "rollup -c ./rollup.config.js && tsdx lint --fix",
+    "build": "rollup -c ./rollup.config.js --environment BUILD:production && tsdx lint --fix",
     "test": "tsdx test",
     "test:coverage": "tsdx test --coverage",
     "lint:fix": "tsdx lint",
