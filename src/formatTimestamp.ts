@@ -1,6 +1,9 @@
+import { FormatOptions } from './types'
 import { padLeft } from './utils'
-import { FormatOptions } from '.'
 
+/**
+ * @public
+ */
 export function formatTimestamp(
   timestamp: number,
   options: FormatOptions = { format: 'SRT' }

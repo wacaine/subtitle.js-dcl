@@ -1,8 +1,27 @@
-import stripBom from 'strip-bom'
-import { Node, RE_TIMESTAMP, parseTimestamps } from '.'
+import { parseTimestamps, RE_TIMESTAMP } from './parseTimestamps'
+import { Node } from './types'
 
+/**
+ * @public
+ */
 export type Pusher = (node: Node) => void
 
+/**
+ * @public
+ */
+export function stripBom(string: string): string {
+  // Catches EFBBBF (UTF-8 BOM) because the buffer-to-string
+  // conversion translates it to FEFF (UTF-16 BOM)
+  if (string.charCodeAt(0) === 0xfeff) {
+    return string.slice(1)
+  }
+
+  return string
+}
+
+/**
+ * @public
+ */
 export interface ParseState {
   expect: 'header' | 'id' | 'timestamp' | 'text' | 'vtt_comment'
   row: number
@@ -12,6 +31,9 @@ export interface ParseState {
   buffer: string[]
 }
 
+/**
+ * @public
+ */
 export class Parser {
   private push: Pusher
   private state: ParseState
@@ -168,7 +190,7 @@ export class Parser {
     if (this.state.node.type === 'cue') {
       while (true) {
         const lastItem = this.state.buffer[this.state.buffer.length - 1]
-        if (['', '\n'].includes(lastItem)) {
+        if (['', '\n'].indexOf(lastItem) !== -1) {
           this.state.buffer.pop()
         } else {
           break
@@ -177,7 +199,7 @@ export class Parser {
 
       while (true) {
         const firstItem = this.state.buffer[0]
-        if (['', '\n'].includes(firstItem)) {
+        if (['', '\n'].indexOf(firstItem) !== -1) {
           this.state.buffer.shift()
         } else {
           break

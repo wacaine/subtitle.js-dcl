@@ -1,7 +1,15 @@
-import { parseTimestamp, Timestamp } from '.'
+import { parseTimestamp } from './parseTimestamp'
+import { Timestamp } from './types'
 
-export const RE_TIMESTAMP = /^((?:\d{1,}:)?\d{2}:\d{2}[,.]\d{3}) --> ((?:\d{1,}:)?\d{2}:\d{2}[,.]\d{3})(?: (.*))?$/
+/**
+ * @public
+ */
+export const RE_TIMESTAMP =
+  /^((?:\d{1,}:)?\d{2}:\d{2}[,.]\d{1,3}) --> ((?:\d{1,}:)?\d{2}:\d{2}[,.]\d{1,3})(?: (.*))?$/
 
+/**
+ * @public
+ */
 export function parseTimestamps(value: string): Timestamp {
   const match = RE_TIMESTAMP.exec(value)
 
@@ -11,7 +19,7 @@ export function parseTimestamps(value: string): Timestamp {
 
   const timestamp: Timestamp = {
     start: parseTimestamp(match[1]),
-    end: parseTimestamp(match[2])
+    end: parseTimestamp(match[2]),
   }
 
   if (match[3]) {
