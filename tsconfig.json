@@ -1,19 +1,24 @@
 {
   "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "dist"
+    "src",
+    "types"
   ],
   "compilerOptions": {
-    "module": "ESNext",
- 
-    "removeComments": true,
+    "module": "es6",
+    "lib": [
+      "es6"
+    ],
+    "importHelpers": true,
     "declaration": true,
-    "declarationDir": ".",
-    "outDir": "dist",
+    "sourceMap": true,
     "rootDir": "./src",
-    "esModuleInterop": true,
-  },
-  //"extends": "./node_modules/decentraland-ecs/types/tsconfig.json"   
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true
+  }
 }
