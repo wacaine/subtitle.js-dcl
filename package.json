@@ -1,7 +1,7 @@
 {
   "name": "subtitle.js-dcl",
-  "version": "5.0.0",
-  "description": "Test Dcl SDK Library",
+  "version": "6.0.0",
+  "description": "Stream-based library for parsing and manipulating subtitles for Decentraland",
   "main": "./dist/index.js",
   "scripts": {
     "build": "rollup -c --environment BUILD:production",
@@ -16,13 +16,30 @@
     "dcl",
     "decentraland",
     "sdk",
-    "library"
+    "library",
+    "subtitle",
+    "webvtt",
+    "srt",
+    "vtt",
+    "captions",
+    "subrip",
+    "parse",
+    "parser",
+    "stringify",
+    "validate",
+    "validation",
+    "stream",
+    "streams",
+    "read",
+    "write",
+    "map",
+    "filter"
   ],
   "author": "-",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/$author/$name"
+    "url": "https://github.com/wacaine/subtitle.js-dcl"
   },
   "files": [
     "dist"
